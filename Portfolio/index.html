@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kapil Chaudhary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      
+      window.addEventListener("scroll",(ev)=>{
+        let stars = document.getElementById("stars")
+        let moon = document.getElementById("moonbg")
+        let pos = window.scrollY 
+        if(pos >=0 && pos < window.screen.height-200){
+          stars.style.opacity = 0
+          moon.style.opacity = 1
+        } 
+        else if(pos > window.screen.height-200 && pos <=window.screen.height*3 ){
+          stars.style.opacity = 1
+          moon.style.opacity = 0
+        }
+        else{
+          stars.style.opacity = 0
+          moon.style.opacity = 0
+        }
+      })
+    </script>
+    
+  </body>
+</html>
