@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import userRouter from "./Api/User/routes.js"
+import queryRouter from "./Api/Query/routes.js"
 import cors from "cors"
 import bodyParser from "body-parser"
 dotenv.config()
@@ -11,12 +12,10 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/user",userRouter)
-
+app.use("/query",queryRouter)
 app.get("/",(req,res)=>{
     res.send("Hello World")
 })
-
-
 
 
 mongoose.connect(process.env.DB_STRING).then(()=>{
