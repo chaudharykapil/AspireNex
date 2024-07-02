@@ -6,7 +6,7 @@ import queryRouter from "./Api/Query/routes.js"
 import cors from "cors"
 import http from "http"
 import bodyParser from "body-parser"
-import MessageIO from "./Api/Messages/routes.js"
+import MessageSocket from "./Api/Messages/socketApi.js"
 dotenv.config()
 
 const app = express()
@@ -16,7 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/user",userRouter)
 app.use("/query",queryRouter)
 const server = http.createServer(app)
-new MessageIO(server)
+new MessageSocket(server)
+
 app.get("/",(req,res)=>{
     res.send("Hello World")
 })

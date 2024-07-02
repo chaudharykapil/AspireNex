@@ -1,4 +1,4 @@
 import messageModel from "./messageModel.js"
-export default class User extends messageModel{
+export default class Message extends messageModel{
 
 }
