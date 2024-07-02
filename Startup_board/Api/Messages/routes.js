@@ -22,7 +22,7 @@ export default class MessageIO extends Server{
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++ TestEvents ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     static test(args){
-        // console.log(args)
+        console.log(args)
         this.emit("test",MessageIO.testreturn(this))
     }
     static testreturn(args){
