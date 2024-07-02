@@ -23,10 +23,10 @@ app.post("/login",async (req,res)=>{
     const cred = req.body
     const user = await User.findOne(cred).exec()
     if(user){
-        res.send(user)
+        res.json(user)
     }
     else{
-        res.send("not found")
+        res.json(null)
     }
 })
 
