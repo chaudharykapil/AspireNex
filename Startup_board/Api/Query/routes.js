@@ -22,26 +22,26 @@ app.post("/create",async (req,res)=>{
 })
 
 app.get("/find/all",async (req,res)=>{
-    const queries = await Query.find().exec()
-    res.json({data:queries})
+    const queries = await Query.find({}).exec()
+    res.json(queries)
 })
 
 app.get("/find/all/:user_id",async (req,res)=>{
     const user_id = req.params.user_id
     const queries = await Query.find({userid:user_id}).exec()
-    res.json({data:queries})
+    res.json(queries)
 })
 app.get("/find/category/:category",async (req,res)=>{
     const category = req.params.category
     const queries = await Query.find({category:category}).exec()
-    res.json({data:queries})
+    res.json(queries)
 })
 
 app.get("/get/:id",async (req,res)=>{
     const id = req.params.id
     try{
         const queries = await Query.findById(id).exec()
-        res.json({data:queries})
+        res.json(queries)
     }
     catch{
         res.status(400).send("Bad params")
@@ -77,7 +77,7 @@ app.post("/remove_interest",async (req,res)=>{
 app.get("/interest/getall/:queryid",async (req,res)=>{
     const q_id = req.params.queryid
     const result = await QueryInterest.find({queryid:q_id}).exec()
-    res.json({data:result})
+    res.json(result)
 })
 
 export default app

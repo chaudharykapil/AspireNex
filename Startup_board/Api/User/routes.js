@@ -31,5 +31,17 @@ app.post("/login",async (req,res)=>{
 })
 
 
+app.get("/getuser/:id",async (req,res)=>{
+    const id = req.params.id
+    const user = await User.findById(id).exec()
+    if(user){
+        res.json(user)
+    }
+    else{
+        res.json(null)
+    }
+})
+
+
 
 export default app

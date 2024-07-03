@@ -4,6 +4,7 @@ import Homepage from './screens/Homepage'
 import Header from './screens/components/Header'
 import SignupScreen from './screens/SignupScreen'
 import LoginScreen from './screens/LoginScreen'
+import CreateBlog from './screens/createBlog'
 
 function App() {
   const curruser = localStorage.getItem("curr_user")
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' Component={Homepage} />
         <Route path='/user/register' Component={SignupScreen} />
         <Route path='/user/login' Component={LoginScreen} />
+        <Route path='/user/write' Component={CreateBlog} />
 
       </Routes>
     </BrowserRouter>

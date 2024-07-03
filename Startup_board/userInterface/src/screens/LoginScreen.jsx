@@ -19,7 +19,7 @@ export default function LoginScreen() {
             password:password
         }
         const res = await axios.post(BASE_URL+USER_LOGIN,data)
-        console.log(res.data._id)
+        console.log(res.data)
         if(res.status == 200 && res.data != null){
             localStorage.setItem(LOCAL_STORAGE_CURR_USER_KEY,res.data._id)
             navigate("/")
