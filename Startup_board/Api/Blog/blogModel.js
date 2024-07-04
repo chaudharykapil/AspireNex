@@ -1,14 +1,13 @@
-import {Schema,model} from "mongoose"
+import mongoose, {Schema,model} from "mongoose"
 
 const blog_schema = new  Schema({
-    name:{type:String,required:true},
-    email:{type:String,required:true},
-    companyname:{type:String},
-    type:{type:String,enum:["investor","founder"]},
-    password:{type:String,required:true},
-    link:{type:Map,of:String},
+    userid:{type:mongoose.Types.ObjectId,required:true},
+    title:{type:String,required:true},
+    subtitle:{type:String},
+    banner:{type:String},
+    content:{type:String,required:true},
 },
 {
     timestamps:true
 })
-export default model("users",user_schema)
+export default model("blogs",blog_schema)

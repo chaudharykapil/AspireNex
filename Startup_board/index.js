@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import mongoose from "mongoose"
 import userRouter from "./Api/User/routes.js"
 import queryRouter from "./Api/Query/routes.js"
+import blogRouter from "./Api/Blog/routes.js"
 import cors from "cors"
 import http from "http"
 import bodyParser from "body-parser"
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/user",userRouter)
 app.use("/query",queryRouter)
+app.use("/blog",blogRouter)
 const server = http.createServer(app)
 new MessageSocket(server)
 

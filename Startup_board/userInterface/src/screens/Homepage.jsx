@@ -6,6 +6,8 @@ import { LOCAL_STORAGE_CURR_USER_KEY } from '../utils/constant'
 import NewQueryCard from './components/NewQueryCard'
 import Toast from './components/Toast'
 import { getAllQueries } from '../serverapi/queryApi'
+import BlogCard from './components/BlogCard'
+import { getAllBlogs } from '../serverapi/blogApi'
 
 function LeftSection({}) {
   return (
@@ -28,12 +30,15 @@ function RightSection({}) {
 }
 function MiddleSection({}) {
 	const [queries,setQueries] = useState([])
+	const [blogs,setBlogs] = useState([])
 	useEffect(()=>{
 		getAllQueries().then(v=>setQueries(v))
+		getAllBlogs().then(v=>{setBlogs(v)})
 	},[])
 	return (
 	  <div className=' flex flex-col p-5 gap-y-10'>
 		{queries.map(q=><QueryCard title={q.title} content={q.content} date={q.createdAt} userid = {q.userid} />)}
+		{blogs.map((b)=><BlogCard blogid={b._id} title={b.title} subtitle={b.subtitle} date={b.createdAt} content={b.content} userid={b.userid} />)}
 	  </div>
 	)
 }

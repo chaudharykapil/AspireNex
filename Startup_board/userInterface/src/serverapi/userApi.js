@@ -3,11 +3,10 @@ import { BASE_URL, LOCAL_STORAGE_CURR_USER_KEY, USER_GET_DETAIL } from "../utils
 
 export async function getUserDetail(userid) { 
     const res =await axios.get(BASE_URL+USER_GET_DETAIL+userid)
-    console.log(res.data)
     return res.data
 }
 
 export function Logout(){
     localStorage.removeItem(LOCAL_STORAGE_CURR_USER_KEY)
-    window.location.reload()
+    window.location = "/user/login"
 }

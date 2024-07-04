@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import HRLine from './HRLine'
 import { getUserDetail } from '../../serverapi/userApi'
 
-function ActionBar({}) {
+function ActionBar({queryid}) {
     return (
         <div className='w-full h-10 flex flex-row gap-x-5 text-3xl font-Fira items-center '>
             <span className='text-base' >100+</span>

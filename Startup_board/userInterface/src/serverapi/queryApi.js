@@ -6,7 +6,6 @@ export async function getAllQueries(){
     let data = []
     const res = await axios.get(BASE_URL+QUERY_FIND)
     data = res.data.filter((v)=>v.userid != curr_user)
-    console.log(data)
     data = data.sort((a,b)=>new Date(b.createdAt) - new Date(a.createdAt))
     return data
 }
